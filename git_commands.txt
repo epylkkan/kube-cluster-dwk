@@ -1,0 +1,3 @@
+git add *.yaml
+git commit -m "first version"
+git push origin main
