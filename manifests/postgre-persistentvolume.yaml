@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgresql-db-pv
+  namespace: todo
+spec:
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  capacity:
+    storage: 1Gi # Could be e.q. 500Gi. Small amount is to preserve space when testing locally
+  volumeMode: Filesystem # This declares that it will be mounted into pods as a directory
+  accessModes:
+  - ReadWriteMany
+  local:
+    path: /data
+  nodeAffinity: ## This is only required for local, it defines which nodes can access it
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k3d-k3s-default-agent-0
+          - k3d-k3s-default-serverlb
+          - k3d-k3s-default-agent-1
+          - k3d-k3s-default-agent-0
+          - k3d-k3s-default-server-0

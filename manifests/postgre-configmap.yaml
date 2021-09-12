@@ -1,0 +1,13 @@
+# PostgreSQL StatefulSet ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-db-config
+  namespace: todo
+  labels:
+    app: postgresql-db
+data:
+  POSTGRES_DB: tododb
+  POSTGRES_USER: todo
+  POSTGRES_PASSWORD: todo
+  PGDATA: /data/pgdata

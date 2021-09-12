@@ -1,0 +1,58 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: todo-back
+  namespace: todo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-back
+  strategy:
+    canary:
+      steps:
+      - setWeight: 50
+      - analysis:
+          templates:
+          - templateName: cpu      
+  template:
+    metadata:
+      labels:
+        app: todo-back
+    spec:
+      containers:
+        - name: todo
+          image: BACKEND-IMAGE
+          #image: epylkkan/training_kubernetes_devops:210backend
+          readinessProbe:
+           initialDelaySeconds: 10
+           periodSeconds: 5
+           httpGet:
+             path: /healthz
+             port: 3002          
+          livenessProbe:
+            initialDelaySeconds: 20 # Initial delay until the liveness is tested
+            periodSeconds: 5 # How often to test
+            httpGet:
+               path: /healthz
+               port: 3002
+          volumeMounts: # Mount volume
+          - name: todopw
+            mountPath: "/usr/src/app/todopw"
+            readOnly: false
+          envFrom:
+            - secretRef:
+                name: todopw
+            - configMapRef:
+                name: postgres-db-config
+          env:
+            - name: NATS
+              value: nats:4222
+          resources:
+            limits:
+              cpu: "150m"
+              memory: "100Mi"
+      volumes:
+        - name: todopw
+          secret: 
+            # name: todopw

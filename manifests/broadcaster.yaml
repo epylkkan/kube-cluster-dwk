@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  namespace: todo
+  name: todo-broadcaster
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-broadcaster
+  strategy:
+    canary:
+      steps:
+      - setWeight: 50
+      - analysis:
+          templates:
+          - templateName: cpu
+  template:
+    metadata:
+      labels:
+        app: todo-broadcaster
+    spec:
+      containers:
+        - name: todo-broadcaster
+          image: epylkkan/training_kubernetes_devops:406-46broadcaster
+          imagePullPolicy: Always
+          env: 
+          - name: NATS
+            value: nats:4222
+          - name: BOT_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bot
+                key: BOT_TOKEN
+          - name: CHAT_ID            
+            value: '-1001233536244'

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-front
+  namespace: todo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-front
+  template:
+    metadata:
+      labels:
+        app: todo-front
+    spec:
+      containers:
+        - name: todo-front
+          image: FRONTEND-IMAGE
+          readinessProbe:
+           failureThreshold: 3
+           successThreshold: 1
+           timeoutSeconds: 1
+           initialDelaySeconds: 15
+           periodSeconds: 60
+           httpGet:
+             path: /healthz
+             port: 3000       
+          livenessProbe:
+           initialDelaySeconds: 20 # Initial delay until the liveness is tested
+           periodSeconds: 5 # How often to test
+           httpGet:
+             path: /healthz
+             port: 3000
+          resources:
+            limits:
+              cpu: "150m"
+              memory: "100Mi"

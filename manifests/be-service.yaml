@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-back-svc
+  namespace: todo
+spec:
+  type: ClusterIP
+  selector:
+    app: todo-back
+  ports:
+    - port: 2346
+      name: todo-back
+      protocol: TCP
+      targetPort: 3002

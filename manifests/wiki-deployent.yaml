@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-wiki
+  namespace: todo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-wiki
+  template:
+    metadata:
+      labels:
+        app: todo-wiki
+    spec:
+      containers:
+        - name: todo-wiki
+          image: PROJECT/IMAGE
+          resources:
+            limits:
+              cpu: "150m"
+              memory: "100Mi"

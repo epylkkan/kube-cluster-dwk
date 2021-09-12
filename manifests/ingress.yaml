@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: todo-app-with-frontend-and-backend
+  namespace: todo
+spec:
+  rules:
+  - host: localhost
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: todo-front-svc
+          servicePort: 2345
+      - path: /backend
+        backend:
+          serviceName: todo-back-svc
+          servicePort: 2346
+      - path: /wiki
+        backend:
+          serviceName: todo-wiki-svc
+          servicePort: 2347
