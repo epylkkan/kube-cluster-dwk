@@ -1,12 +1,13 @@
 name: dwk training 4.07 gitops app
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - '**'
-      - '.github/workflows/gitops-gha.yaml'
+  workflow_dispatch:
+  #push:
+  #  branches:
+  #   - master
+  #  paths:
+  #    - '**'
+  #    - '.github/workflows/gitops-gha.yaml'
 
 jobs:
   build:
