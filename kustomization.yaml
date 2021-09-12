@@ -6,30 +6,9 @@ resources:
 - manifests/postgre-configmap.yaml
 - manifests/postgre-service.yaml
 - manifests/postgre-statefulset.yaml
-- manifests/be_rollout.yaml
-- manifests/be_service.yaml
-- manifests/be_horizontalpodautoscaler.yaml
-- manifests/broadcaster.yaml
-- manifests/broadcaster-sealed-secret.yaml
-- manifests/fe-deployment.yaml
-- manifests/fe-service.yaml
-- manifests/fe-horizontalpodautoscaler.yaml
 - manifests/nats-svc.yaml
 - manifests/nats-statefulset.yaml
-- manifests/wiki-deployment.yaml
-- manifests/wiki-service.yaml
-- manifests/wiki-cronjob.yaml
-- manifests/wiki-horizontalpodautoscaler.yaml
 - manifests/ingress.yaml
-images:
-- name: BACKEND-IMAGE
-  newName: epylkkan/training_kubernetes_devops:406-73todoback
-- name: BROADCASTER-IMAGE
-  newName: epylkkan/training_kubernetes_devops:406-46broadcaster
-- name: FRONTEND-IMAGE
-  newName: epylkkan/training_kubernetes_devops:402-11todofront
-- name: WIKI-IMAGE
-  newName: epylkkan/training_kubernetes_devops:402wiki
 
 
 

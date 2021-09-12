@@ -6,10 +6,18 @@ k3d cluster create --port '8082:30080@agent[0]' -p 8081:80@loadbalancer --agents
 kubectl create namespace todo
 kubectl get nodes --output wide
 # kubectl create secret generic todopw --from-file=/usr/src/app/todopw -n todo // not used
-kubectl create configmap nats-config --from-file /etc/nats-config/nats.conf -n todo // copied also to ./4.06/nats/conf -directory
 
 flux bootstrap github --owner=epylkkan --repository=kube-cluster-dwk --personal --private=false
 git clone https://github.com/epylkkan/kube-cluster-dwk
+
+
+
+START NATS, POSTGRE AND INGRESS (no own code)
+
+./4.07-4.08
+kubectl create configmap nats-config --from-file /etc/nats-config/nats.conf -n todo // copied also to ./4.06/nats/conf -directory
+kubectl apply -k .
+
 
 
 SEALED SECRETS
@@ -39,4 +47,10 @@ kubeseal --format=yaml < secret.yaml > sealed-secret.yaml
 # kubeseal --format=yaml --cert=public-key-cert.pem < secret.yaml > sealed-secret.yaml // not needed
 # kubectl apply -f sealed-secret.yaml // not used
 
+
+GIT 
+
+git add .
+git commit -m "...update"
+git push origin main
 
