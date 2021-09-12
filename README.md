@@ -8,7 +8,7 @@ kubectl get nodes --output wide
 # kubectl create secret generic todopw --from-file=/usr/src/app/todopw -n todo // not used
 kubectl create configmap nats-config --from-file /etc/nats-config/nats.conf -n todo // copied also to ./4.06/nats/conf -directory
 
-flux bootstrap github --owner=epylkkan --repository=kube-cluster-dwk --personal --private
+flux bootstrap github --owner=epylkkan --repository=kube-cluster-dwk --personal --private=false
 git clone https://github.com/epylkkan/kube-cluster-dwk
 
 

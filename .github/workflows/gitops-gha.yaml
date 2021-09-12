@@ -1,4 +1,4 @@
-name: Release 4-gitops-app
+name: dwk training 4.07 gitops app
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - '**'
-      - '.github/workflows/gitops-gha.yml'
+      - '.github/workflows/gitops-gha.yaml'
 
 jobs:
   build:
@@ -48,7 +48,7 @@ jobs:
     # Commit and push
     - uses: EndBug/add-and-commit@v5
       with:
-        add: './manifests/kustomization.yaml'
+        add: './kustomization.yaml'
         message: New version release for gitops-app ${{ github.sha }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
