@@ -7,7 +7,6 @@ resources:
 images:
 - name: FRONTEND-IMAGE
   newName: epylkkan/training_kubernetes_devops:gitops-fe-408
-#  newName: epylkkan/training_kubernetes_devops:402-11todofront
-#- name: IMAGE_PLACEHOLDER
-  # newName: epylkkan/training_kubernetes_devops:gitops-fe-408
-  # newTag: 100dfc3fbc412839689e816015de10ecb193539a
+- name: IMAGE_PLACEHOLDER
+  newName: epylkkan/training_kubernetes_devops
+  newTag: gitops-fe-408
