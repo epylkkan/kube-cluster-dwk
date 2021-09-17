@@ -38,7 +38,7 @@ jobs:
       with:
        #context: .
        #push: ${{ GitHub.event_name != 'pull_request' }}
-       push: epylkkan/training_kubernetes_devops
+       push: true
        #tags: ${{ steps.meta.outputs.tags }}
        tags: ${{ github.sha }}
        #labels: ${{ steps.meta.outputs.labels }}
