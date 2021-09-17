@@ -8,5 +8,5 @@ spec:
   interval: 10m
   url: https://github.com/epylkkan/kube-cluster-dwk
   ref:
-    branch: main
-    #branch: master
+    #branch: main
+    branch: master
