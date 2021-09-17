@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  url: https://github.com/epylkkan/kube-cluster-dwk/frontend
+  url: https://github.com/epylkkan/kube-cluster-dwk
   ref:
     branch: main
     #branch: master
