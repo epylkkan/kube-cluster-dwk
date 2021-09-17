@@ -8,6 +8,6 @@ spec:
     kind: GitRepository
     name: gitops-repo
   interval: 10m
-  path: ./frontend/manifests # Path tells where to find the files. Excellent for "monorepos" where you have multiple different applications in one repository, like the example repository.
+  path: ./manifests # Path tells where to find the files. Excellent for "monorepos" where you have multiple different applications in one repository, like the example repository.
   prune: true # This will make sure that deleting the file will delete the resource
   validation: client # Who validates the objects. Server or the client.
