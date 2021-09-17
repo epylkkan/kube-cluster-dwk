@@ -3,11 +3,11 @@ name: dwk training frontend 4.08 gitops app
 on:
   workflow_dispatch:
   #push:
-  #  branches:
-  #   - master
-  #  paths:
-  #    - '**'
-  #    - '.github/workflows/gitops-gha.yaml'
+    branches:
+      - master
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/gitops-gha_fe.yaml'
 
 jobs:
   build:
@@ -18,9 +18,9 @@ jobs:
 
     # Build and push
     - name: Publish to Registry
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v1
       with:
-        repository: epylkkan/kube-cluster-dwk
+        repository: epylkkan/training_kubernetes_devops
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         tags: ${{ github.sha }}
