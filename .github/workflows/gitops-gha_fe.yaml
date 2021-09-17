@@ -63,7 +63,8 @@ jobs:
     - name: Update yamls
       working-directory: frontend
       run: |-
-        ./kustomize edit set image IMAGE_PLACEHOLDER=epylkkan/training_kubernetes_devops/gitops-fe-408:${{ github.sha }}
+        ./kustomize edit set image IMAGE_PLACEHOLDER=epylkkan/training_kubernetes_devops:gitops-fe-408
+      # ./kustomize edit set image IMAGE_PLACEHOLDER=epylkkan/training_kubernetes_devops/gitops-fe-408:${{ github.sha }}
 
     # Commit and push
     - uses: EndBug/add-and-commit@v5
