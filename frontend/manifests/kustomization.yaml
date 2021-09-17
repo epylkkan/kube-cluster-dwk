@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- fe-deployment.yaml
+- fe-service.yaml
+- fe-horizontalpodautoscaler.yaml
+images:
+- name: FRONTEND-IMAGE
+  newName: epylkkan/training_kubernetes_devops:gitops-fe-408
+#- name: IMAGE_PLACEHOLDER
+  #newName: epylkkan/training_kubernetes_devops:gitops-fe-408
