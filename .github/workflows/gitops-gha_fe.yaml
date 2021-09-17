@@ -36,8 +36,8 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-       context: .
-       push: ${{ GitHub.event_name != 'pull_request' }}
+       #context: .
+       #push: ${{ GitHub.event_name != 'pull_request' }}
        #tags: ${{ steps.meta.outputs.tags }}
        tags: ${{ github.sha }}
        #labels: ${{ steps.meta.outputs.labels }}
