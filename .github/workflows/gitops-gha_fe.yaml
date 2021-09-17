@@ -40,7 +40,8 @@ jobs:
        #push: ${{ GitHub.event_name != 'pull_request' }}
        push: true
        #tags: ${{ steps.meta.outputs.tags }}
-       tags: ${{ github.sha }}
+       #tags: ${{ github.sha }}
+       tags: epylkkan/training_kubernetes_devops/gitops-fe-408
        #labels: ${{ steps.meta.outputs.labels }}
 
 
