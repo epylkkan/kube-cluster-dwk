@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: gitops-repo
-  namespace: flux-system
+  namespace: todo
 spec:
   interval: 10m
   url: https://github.com/epylkkan/kube-cluster-dwk/frontend
