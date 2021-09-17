@@ -9,4 +9,4 @@ images:
   newName: epylkkan/training_kubernetes_devops:402-11todofront
 - name: IMAGE_PLACEHOLDER
   newName: epylkkan/training_kubernetes_devops/gitops-fe-408
-  newTag: 100dfc3fbc412839689e816015de10ecb193539a
+  newTag: c3feb055bc3d87d0d1ae201e9abc7a51a4c25f39
